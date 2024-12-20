@@ -39,3 +39,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - prisma: `npm install prisma@latest`
 - @prisma/client: `npm install @prisma/client@latest`
 - zod: `npm install zod@latest`
+- @radix-ui/themes: `npm install @radix-ui/themes`
