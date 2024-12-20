@@ -9,7 +9,7 @@ export default function NavBar() {
   // list of nav links:
   const links = [
     { id: 1, href: "/", content: "Dashboard" },
-    { id: 2, href: "/issue", content: "Issues" },
+    { id: 2, href: "/issues", content: "Issues" },
   ];
   // get path of url:
   const currentPath = usePathname();
