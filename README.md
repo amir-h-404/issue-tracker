@@ -37,3 +37,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - react-icons: `npm install react-icons@latest`
 - classnames: `npm install classnames@latest`
 - prisma: `npm install prisma@latest`
+- @prisma/client: `npm install @prisma/client@latest`
+- zod: `npm install zod@latest`
