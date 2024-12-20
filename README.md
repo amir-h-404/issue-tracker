@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - password: (nothing)
 - port: 3306
 
-## installed dependencies:
+## Installed dependencies:
 
 - react-icons: `npm install react-icons@latest`
 - classnames: `npm install classnames@latest`
