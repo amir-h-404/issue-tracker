@@ -1,12 +1,7 @@
-import { Button } from "@radix-ui/themes";
-import Link from "next/link";
-
-export default function Home() {
+export default function Page() {
   return (
     <div>
-      <Button>
-        <Link href="/issues/new">new issue</Link>
-      </Button>
+      <h1>Home Page</h1>
     </div>
   );
 }
