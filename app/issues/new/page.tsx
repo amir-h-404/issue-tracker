@@ -28,7 +28,17 @@ export default function Page() {
     }),
     router = useRouter(),
     [error, setError] = useState(""),
-    [isSubmitting, setSubmitting] = useState(false);
+    [isSubmitting, setSubmitting] = useState(false),
+    submit = handleSubmit(async (data) => {
+      try {
+        setSubmitting(true);
+        await axios.post("/api/issues", data);
+        router.push("/issues");
+      } catch (error) {
+        setSubmitting(false);
+        setError("An unexpected error occurred!");
+      }
+    });
   return (
     /*
     TextField.Root supports from {...register("title")}
@@ -43,19 +53,7 @@ export default function Page() {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form
-        className="*:my-3"
-        onSubmit={handleSubmit(async (data) => {
-          try {
-            setSubmitting(true);
-            await axios.post("/api/issues", data);
-            router.push("/issues");
-          } catch (error) {
-            setSubmitting(false);
-            setError("An unexpected error occurred!");
-          }
-        })}
-      >
+      <form className="*:my-3" onSubmit={submit}>
         <TextField.Root placeholder="title" {...register("title")} />
         <ErrorMessage>{errors.title?.message}</ErrorMessage>
         <Controller
