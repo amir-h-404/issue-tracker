@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createIssueSchema } from "@/app/validationSchemas";
 import { z } from "zod";
 import ErrorMessage from "@/app/components/ErrorMessage";
+import Spinner from "@/app/components/Spinner";
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -26,7 +27,8 @@ export default function Page() {
       resolver: zodResolver(createIssueSchema),
     }),
     router = useRouter(),
-    [error, setError] = useState("");
+    [error, setError] = useState(""),
+    [isSubmitting, setSubmitting] = useState(false);
   return (
     /*
     TextField.Root supports from {...register("title")}
@@ -45,9 +47,11 @@ export default function Page() {
         className="*:my-3"
         onSubmit={handleSubmit(async (data) => {
           try {
+            setSubmitting(true);
             await axios.post("/api/issues", data);
             router.push("/issues");
           } catch (error) {
+            setSubmitting(false);
             setError("An unexpected error occurred!");
           }
         })}
@@ -62,7 +66,9 @@ export default function Page() {
           )}
         />
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
-        <Button>submit new issue</Button>
+        <Button disabled={isSubmitting}>
+          submit new issue {isSubmitting && <Spinner />}
+        </Button>
       </form>
     </div>
   );
