@@ -43,3 +43,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - react-simplemde-editor and easymde: `npm install --save react-simplemde-editor easymde`
 - react-hook-form: `npm install react-hook-form@latest`
 - axios: `npm install axios@latest`
+- @hookform/resolvers: `npm install @hookform/resolvers@latest`
